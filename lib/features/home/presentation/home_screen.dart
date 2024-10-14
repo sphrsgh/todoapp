@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
-import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
-import 'package:todoapp/features/home/presentation/widgets/empty_state_widget.dart';
-import 'package:todoapp/features/todo/presentation/task_screen.dart';
+import 'package:todoapp/features/task/domain/entity/task_entity.dart';
+import 'package:todoapp/features/task/presentation/task_screen.dart';
 import 'package:todoapp/features/home/presentation/widgets/task_list_widget.dart';
 
-class HomeScreenView extends StatelessWidget {
-  HomeScreenView({super.key});
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
 
   final ValueNotifier<String> seachKeywordNotifier = ValueNotifier('');
 
@@ -54,11 +53,7 @@ class HomeScreenView extends StatelessWidget {
                 onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => TaskScreenView(
-                                toDo: ToDoEntity(
-                              name: '',
-                              isCompleted: false,
-                            )))),
+                        builder: (context) => const TaskScreen())),
                 label: const Text('New ToDo'),
                 icon: const Icon(Icons.add),
               ),

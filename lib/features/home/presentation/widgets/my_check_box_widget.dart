@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/main.dart';
-import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
+import 'package:todoapp/features/task/domain/entity/task_entity.dart';
 
 class MyCheckBox extends StatelessWidget {
   final bool isCompleted;

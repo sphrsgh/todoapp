@@ -1,9 +1,9 @@
-class ToDoEntity {
+class TaskEntity {
   int? id;
   String name;
   bool isCompleted;
 
-  ToDoEntity({
+  TaskEntity({
     this.id,
     required this.name,
     required this.isCompleted,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
+import 'package:todoapp/core/constants/routings.dart';
 import 'package:todoapp/features/home/presentation/home_screen.dart';
 
 const taskBoxName = 'tasks';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     const primaryTextColor = Color(0xFF1D2830);
 
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'To Do App',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
@@ -47,7 +48,15 @@ class MyApp extends StatelessWidget {
           floatingLabelBehavior: FloatingLabelBehavior.never,
           iconColor: secondaryTextColor,
           prefixIconColor: secondaryTextColor,
-          border: InputBorder.none,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(
+              width: 1.0,
+              color: Colors.black,
+            ),
+          ),
         ),
         colorScheme: const ColorScheme.light(
           primary: primaryColor,
@@ -88,7 +97,9 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         useMaterial3: true,
       ),
-      home: HomeScreenView(),
+      getPages: Routings().pages,
+      // initialRoute: '/',
+      home: HomeScreen(),
     );
   }
 }

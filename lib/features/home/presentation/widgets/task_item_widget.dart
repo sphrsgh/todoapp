@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
-import 'package:todoapp/features/todo/presentation/task_screen.dart';
+import 'package:todoapp/features/task/domain/entity/task_entity.dart';
+import 'package:todoapp/features/task/presentation/task_screen.dart';
 import 'package:todoapp/features/home/presentation/widgets/my_check_box_widget.dart';
 
 class TaskItem extends StatefulWidget {
@@ -9,7 +9,7 @@ class TaskItem extends StatefulWidget {
     required this.task,
   });
 
-  final ToDoEntity task;
+  final TaskEntity task;
 
   @override
   State<TaskItem> createState() => _TaskItemState();
@@ -31,13 +31,6 @@ class _TaskItemState extends State<TaskItem> {
       },
       child: InkWell(
         splashFactory: NoSplash.splashFactory,
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => TaskScreenView(toDo: widget.task),
-              ));
-        },
         child: Container(
           height: 74.0,
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 13.0),
@@ -47,10 +40,10 @@ class _TaskItemState extends State<TaskItem> {
             borderRadius: const BorderRadius.all(
               Radius.circular(8.0),
             ),
-            border: const Border(
+            border: Border(
               right: BorderSide(
                 width: 8.0,
-                color: Color(0xFF3BE1F1),
+                color: Theme.of(context).colorScheme.primaryContainer,
               ),
             ),
           ),

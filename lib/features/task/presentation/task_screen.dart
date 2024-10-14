@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
+import 'package:todoapp/features/task/domain/entity/task_entity.dart';
 
-class TaskScreenView extends StatefulWidget {
-  const TaskScreenView({super.key, required this.toDo});
-  final ToDoEntity toDo;
+class TaskScreen extends StatefulWidget {
+  const TaskScreen({super.key});
 
   @override
-  State<TaskScreenView> createState() => _TaskScreenViewState();
+  State<TaskScreen> createState() => _TaskScreenState();
 }
 
-class _TaskScreenViewState extends State<TaskScreenView> {
-  late final TextEditingController _controller =
-      TextEditingController(text: widget.toDo.name);
+class _TaskScreenState extends State<TaskScreen> {
+  final TaskEntity toDo = TaskEntity(
+    name: '',
+    isCompleted: false,
+  );
+  late final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +36,14 @@ class _TaskScreenViewState extends State<TaskScreenView> {
             children: [
               TextField(
                 controller: _controller,
+                minLines: 7,
+                maxLines: 7,
                 decoration: InputDecoration(
                   label: Text(
-                    'Enter ToDo . . . ',
+                    'Enter ToDo...',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
+                  alignLabelWithHint: true,
                 ),
               ),
             ],
