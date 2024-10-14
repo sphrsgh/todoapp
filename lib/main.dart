@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todoapp/core/constants/routings.dart';
@@ -8,14 +7,7 @@ import 'package:todoapp/features/home/presentation/home_screen.dart';
 const taskBoxName = 'tasks';
 
 void main() async {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      systemNavigationBarColor: Color(0xFFF3F5F8),
-    ),
-  );
-  runApp(
-    const MyApp(),
-  );
+  runApp(const MyApp());
 }
 
 const Color primaryColor = Colors.cyan;
@@ -57,6 +49,15 @@ class MyApp extends StatelessWidget {
               color: Colors.black,
             ),
           ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(
+              width: 1.0,
+              color: primaryContainerColor,
+            ),
+          ),
         ),
         colorScheme: const ColorScheme.light(
           primary: primaryColor,
@@ -83,7 +84,24 @@ class MyApp extends StatelessWidget {
           floatingLabelBehavior: FloatingLabelBehavior.never,
           iconColor: secondaryTextColor,
           prefixIconColor: secondaryTextColor,
-          border: InputBorder.none,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(
+              width: 1.0,
+              color: Colors.white,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(
+              width: 1.0,
+              color: primaryContainerColor,
+            ),
+          ),
         ),
         colorScheme: const ColorScheme.light(
           primary: primaryColor,

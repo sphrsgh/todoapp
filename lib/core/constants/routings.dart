@@ -20,9 +20,8 @@ class Routings {
         ),
         GetPage(
           name: task,
-          page: () => const TaskScreen(),
+          page: () => TaskScreen(),
           binding: TaskBinding(),
         ),
       ];
-
 }

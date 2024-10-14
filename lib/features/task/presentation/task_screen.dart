@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:todoapp/features/task/domain/entity/task_entity.dart';
+import 'package:todoapp/features/task/presentation/controller/task_controller.dart';
 
-class TaskScreen extends StatefulWidget {
-  const TaskScreen({super.key});
+class TaskScreen extends GetView<TaskController> {
+  TaskScreen({super.key});
 
-  @override
-  State<TaskScreen> createState() => _TaskScreenState();
-}
-
-class _TaskScreenState extends State<TaskScreen> {
   final TaskEntity toDo = TaskEntity(
     name: '',
     isCompleted: false,
   );
-  late final TextEditingController _controller = TextEditingController();
+
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +34,8 @@ class _TaskScreenState extends State<TaskScreen> {
             children: [
               TextField(
                 controller: _controller,
-                minLines: 7,
-                maxLines: 7,
+                minLines: 5,
+                maxLines: 5,
                 decoration: InputDecoration(
                   label: Text(
                     'Enter ToDo...',
