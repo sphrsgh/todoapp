@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/main.dart';
-import 'package:todoapp/models/todo_model.dart';
-import 'package:todoapp/views/widgets/task_item_widget.dart';
+import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
+import 'package:todoapp/features/home/presentation/widgets/task_item_widget.dart';
 
 class TaskListWidget extends StatelessWidget {
   const TaskListWidget({
@@ -11,7 +11,7 @@ class TaskListWidget extends StatelessWidget {
     required this.themeData,
   });
 
-  final List<ToDoModel> items;
+  final List<ToDoEntity> items;
   final ThemeData themeData;
 
   @override
@@ -25,7 +25,7 @@ class TaskListWidget extends StatelessWidget {
       ),
       itemCount: items.length,
       itemBuilder: (context, index) {
-        final ToDoModel task = items[index];
+        final ToDoEntity task = items[index];
         return TaskItem(
           task: task,
         );

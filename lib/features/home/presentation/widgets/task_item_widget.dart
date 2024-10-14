@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/models/todo_model.dart';
-import 'package:todoapp/views/screens/task_screen_view.dart';
-import 'package:todoapp/views/widgets/my_check_box_widget.dart';
+import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
+import 'package:todoapp/features/todo/presentation/task_screen.dart';
+import 'package:todoapp/features/home/presentation/widgets/my_check_box_widget.dart';
 
 class TaskItem extends StatefulWidget {
   const TaskItem({
@@ -9,7 +9,7 @@ class TaskItem extends StatefulWidget {
     required this.task,
   });
 
-  final ToDoModel task;
+  final ToDoEntity task;
 
   @override
   State<TaskItem> createState() => _TaskItemState();
@@ -35,7 +35,7 @@ class _TaskItemState extends State<TaskItem> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => TaskScreenView(task: widget.task),
+                builder: (context) => TaskScreenView(toDo: widget.task),
               ));
         },
         child: Container(

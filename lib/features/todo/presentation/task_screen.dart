@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/models/todo_model.dart';
+import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
 
 class TaskScreenView extends StatefulWidget {
-  const TaskScreenView({super.key, required this.task});
-  final ToDoModel task;
+  const TaskScreenView({super.key, required this.toDo});
+  final ToDoEntity toDo;
 
   @override
   State<TaskScreenView> createState() => _TaskScreenViewState();
@@ -11,7 +11,7 @@ class TaskScreenView extends StatefulWidget {
 
 class _TaskScreenViewState extends State<TaskScreenView> {
   late final TextEditingController _controller =
-      TextEditingController(text: widget.task.name);
+      TextEditingController(text: widget.toDo.name);
 
   @override
   Widget build(BuildContext context) {

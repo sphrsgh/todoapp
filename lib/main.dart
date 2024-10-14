@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todoapp/models/todo_model.dart';
-import 'package:todoapp/views/screens/home_screen_view.dart';
+import 'package:todoapp/features/todo/domain/entity/todo_entity.dart';
+import 'package:todoapp/features/home/presentation/home_screen.dart';
 
 const taskBoxName = 'tasks';
 
