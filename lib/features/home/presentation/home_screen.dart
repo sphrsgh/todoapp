@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           title: Text(
-            'ToDo App',
+            'Todo App',
             style: Theme.of(context).textTheme.headlineSmall!.apply(
                   color: Theme.of(context).colorScheme.onPrimary,
                   fontSizeFactor: .8,
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
               child: FloatingActionButton.extended(
                 heroTag: 'newToDoHeroTag',
                 onPressed: () => Get.toNamed('/task'),
-                label: const Text('New ToDo'),
+                label: const Text('New Todo'),
                 icon: const Icon(Icons.add),
               ),
             ),

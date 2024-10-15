@@ -49,6 +49,7 @@ class HomeController extends GetxController {
 
   Future<bool> deleteTask(int id) async {
     dio.Response res = await repo.deleteTask(id);
+
     if (res.statusCode == 200) {
       _tasks.removeWhere((element) => element.id == id);
       _tasksBackup.removeWhere((element) => element.id == id);

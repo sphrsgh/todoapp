@@ -1,16 +1,12 @@
 # todoapp
 
-A new Flutter project.
+A Flutter Todo Task List project implemented by GetX package and Clean Architecture design pattern.
 
-## Getting Started
+## BackEnd
 
-This project is a starting point for a Flutter application.
+The backend of this project is provided by [DummyJSON](https://dummyjson.com/) free API.
 
-A few resources to get you started if this is your first Flutter project:
+## Attention!
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Tasks can be added by the user but cannot be changed or deleted.
+(Because of free API)

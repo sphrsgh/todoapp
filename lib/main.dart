@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     const primaryTextColor = Color.fromARGB(255, 29, 40, 48);
 
     return GetMaterialApp(
-      title: 'To Do App',
+      title: 'Todo App',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: ThemeData(
