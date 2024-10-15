@@ -1,1 +1,1 @@
-enum TasksFilter { all, completed, inCompleted }
+enum TasksFilter { all, completed, incompleted }

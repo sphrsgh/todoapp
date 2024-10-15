@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:todoapp/core/remote/api_service.dart';
 import 'package:todoapp/features/home/data/enum/enum.dart';
 import 'package:todoapp/features/home/domain/repository/home_repo.dart';
-import 'package:todoapp/features/task/domain/entity/task_entity.dart';
+import 'package:todoapp/features/home/data/entity/todo_entity.dart';
 
 class HomeRepoImp extends HomeRepo {
   late ApiService apiService;
@@ -12,7 +12,7 @@ class HomeRepoImp extends HomeRepo {
   });
 
   @override
-  Future<List<Map<String, dynamic>>> getAllTasks() {
+  Future<List<dynamic>> getAllTasks() {
     return apiService.getAllTasks();
   }
 
@@ -27,16 +27,14 @@ class HomeRepoImp extends HomeRepo {
   }
 
   @override
-  List<TaskEntity> setTasksFilter(List<TaskEntity> tasks, TasksFilter filter) {
+  List<TodoEntity> setTasksFilter(List<TodoEntity> tasks, TasksFilter filter) {
     switch (filter) {
       case TasksFilter.all:
         return tasks;
       case TasksFilter.completed:
         return tasks.where((task) => task.isCompleted).toList();
-      case TasksFilter.inCompleted:
+      case TasksFilter.incompleted:
         return tasks.where((task) => !task.isCompleted).toList();
     }
   }
-
-  
 }

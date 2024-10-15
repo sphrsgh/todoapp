@@ -3,13 +3,10 @@ import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:get/get.dart';
 import 'package:todoapp/features/home/presentation/controller/home_controller.dart';
 import 'package:todoapp/features/home/presentation/widgets/my_expandable_fab.dart';
-import 'package:todoapp/features/task/presentation/task_screen.dart';
 import 'package:todoapp/features/home/presentation/widgets/task_list_widget.dart';
 
-class HomeScreen extends GetView<HomeController> {
-  HomeScreen({super.key});
-
-  final ValueNotifier<String> seachKeywordNotifier = ValueNotifier('');
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,24 +37,29 @@ class HomeScreen extends GetView<HomeController> {
           ),
           centerTitle: true,
         ),
-        body: Stack(
+        body: GetBuilder(
+          init: HomeController(),
+          builder: (controller) => RefreshIndicator(
+            onRefresh: () async => await controller.loadTasks(),
+            child: TaskListWidget(items: controller.tasks),
+          ),
+        ),
+        floatingActionButtonLocation: ExpandableFab.location,
+        floatingActionButton: Stack(
           children: [
-            TaskListWidget(items: const [], themeData: Theme.of(context)),
+            const MyExpandableFAB(),
             Positioned(
               right: 15.0,
               bottom: 15.0,
               child: FloatingActionButton.extended(
                 heroTag: 'newToDoHeroTag',
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TaskScreen())),
+                onPressed: () => Get.toNamed('/task'),
                 label: const Text('New ToDo'),
                 icon: const Icon(Icons.add),
               ),
             ),
           ],
         ),
-        floatingActionButtonLocation: ExpandableFab.location,
-        floatingActionButton: const MyExpandableFAB(),
       ),
     );
   }

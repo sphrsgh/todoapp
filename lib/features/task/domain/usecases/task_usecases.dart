@@ -1,4 +1,4 @@
-import 'package:dio/src/response.dart';
+import 'package:dio/dio.dart';
 import 'package:todoapp/core/remote/api_service.dart';
 import 'package:todoapp/features/task/domain/entity/task_entity.dart';
 import 'package:todoapp/features/task/domain/repository/task_repo.dart';

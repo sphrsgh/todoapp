@@ -2,28 +2,35 @@ import 'package:dio/dio.dart';
 import 'package:todoapp/features/task/domain/entity/task_entity.dart';
 
 class ApiService {
-  final String _domain = 'https://dummyjson.com/';
+  final String _domain = 'https://dummyjson.com';
   final Dio _dio = Dio();
 
-  Future<List<Map<String, dynamic>>> getAllTasks() async {
-    final response = await _dio.get('$_domain/todos');
-    print(response.data['todos']);
-    return response.data['todos'];
+  Future<List<dynamic>> getAllTasks() async {
+    try {
+      final response = await _dio.get('$_domain/todos');
+      return response.data['todos'];
+    } catch (e) {
+      print(e);
+      return [
+        {
+          "id": 1,
+          "todo": e.toString(),
+          "completed": false,
+          "userId": -1,
+        },
+      ];
+    }
   }
 
   Future<Response<dynamic>> createTask(TaskEntity task) async {
-    Response response = await _dio.post(
-      '$_domain/add',
+    final response = await _dio.post(
+      'https://dummyjson.com/todos/add',
       data: {
-        'todo': task.name,
-        'completed': task.isCompleted,
-        'userId': 100,
+        'todo': task.todo,
+        'completed': task.completed,
+        'userId': task.userId,
       },
-      options: Options(
-        headers: {'Content-Type': 'application/json'},
-      ),
     );
-
     return response;
   }
 

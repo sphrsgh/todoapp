@@ -15,12 +15,12 @@ class Routings {
   List<GetPage> get pages => [
         GetPage(
           name: home,
-          page: () => HomeScreen(),
+          page: () => const HomeScreen(),
           binding: HomeBinding(),
         ),
         GetPage(
           name: task,
-          page: () => TaskScreen(),
+          page: () => const TaskScreen(),
           binding: TaskBinding(),
         ),
       ];

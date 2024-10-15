@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todoapp/core/constants/routings.dart';
-import 'package:todoapp/features/home/presentation/home_screen.dart';
-
-const taskBoxName = 'tasks';
 
 void main() async {
   runApp(const MyApp());
@@ -12,14 +9,14 @@ void main() async {
 
 const Color primaryColor = Colors.cyan;
 const Color primaryContainerColor = Colors.teal;
-const secondaryTextColor = Color(0xFFAFBED0);
+const secondaryTextColor = Color.fromARGB(255, 175, 190, 208);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const primaryTextColor = Color(0xFF1D2830);
+    const primaryTextColor = Color.fromARGB(255, 29, 40, 48);
 
     return GetMaterialApp(
       title: 'To Do App',
@@ -111,13 +108,13 @@ class MyApp extends StatelessWidget {
           secondary: primaryColor,
           onSecondary: Colors.white,
           brightness: Brightness.dark,
+          onPrimary: Colors.black,
         ),
         brightness: Brightness.dark,
         useMaterial3: true,
       ),
       getPages: Routings().pages,
-      // initialRoute: '/',
-      home: HomeScreen(),
+      initialRoute: '/home',
     );
   }
 }

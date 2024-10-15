@@ -1,16 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/main.dart';
-import 'package:todoapp/features/task/domain/entity/task_entity.dart';
 
 class MyCheckBox extends StatelessWidget {
   final bool isCompleted;
   final GestureTapCallback onTap;
 
-  const MyCheckBox(
-      {super.key,
-      required this.isCompleted,
-      required this.onTap});
+  const MyCheckBox({super.key, required this.isCompleted, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

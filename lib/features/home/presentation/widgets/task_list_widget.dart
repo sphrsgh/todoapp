@@ -1,35 +1,41 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todoapp/main.dart';
-import 'package:todoapp/features/task/domain/entity/task_entity.dart';
+import 'package:get/get.dart';
+import 'package:todoapp/features/home/presentation/controller/home_controller.dart';
+import 'package:todoapp/features/home/data/entity/todo_entity.dart';
 import 'package:todoapp/features/home/presentation/widgets/task_item_widget.dart';
 
-class TaskListWidget extends StatelessWidget {
+class TaskListWidget extends GetView<HomeController> {
   const TaskListWidget({
     super.key,
     required this.items,
-    required this.themeData,
   });
 
-  final List<TaskEntity> items;
-  final ThemeData themeData;
+  final List<TodoEntity> items;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: const EdgeInsets.only(
-        top: 16.0,
-        bottom: 100.0,
-        left: 16.0,
-        right: 16.0,
-      ),
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        final TaskEntity task = items[index];
-        return TaskItem(
-          task: task,
-        );
-      },
-    );
+    if (items.isEmpty) {
+      return Center(
+        child: CircularProgressIndicator(
+          color: Theme.of(context).colorScheme.primaryContainer,
+        ),
+      );
+    } else {
+      return ListView.builder(
+        padding: const EdgeInsets.only(
+          top: 16.0,
+          bottom: 100.0,
+          left: 16.0,
+          right: 16.0,
+        ),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final TodoEntity task = items[index];
+          return TaskItem(
+            task: task,
+          );
+        },
+      );
+    }
   }
 }
